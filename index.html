@@ -3,104 +3,224 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> CS-499 ePortfolio</title>
+    <title>CS-499 ePortfolio</title>
 
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 40px;
-        line-height: 1.6;
-        background-color: #f5f5f5;
-        color: #222;
-      }
-
-      main {
-        max-width: 900px;
-        margin: auto;
-        background-color: white;
-        padding: 30px;
-      }
-
-      h1 {
-        margin-bottom: 5px;
-      }
-
-      h2 {
-        margin-top: 30px;
-      }
-
-      footer {
-        margin-top: 40px;
-        boarder-top: 1px solid #ccc;
-        padding-top: 15px;
-        font-size: 14px;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
-    <main>
+    <header>
       <h1> Stephen Bailey CS-499 ePortfolio</h1>
       <p> Computer Science Capstone</p>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#artifact">Artifact</a>
+          <a href="#review">Code Review</a>
+          <a href="#enhancements">Enhancements</a>
+          <a href="#contact">Connect</a>
+        </nav>
+    </header>
+    
+    <main> 
+      <section id "about">
+        <h2>Introduction </h2>
+  
+        <p>My name is Stephen Tyler Bailey and this ePortfolio has been created to CS-499 Computer Science Capstone at Southern New Hampshire Universtiy.
+        This portfolio will be used to demonstrate the knowledge and skills I have aquired during my time in the Computer Science propgram. </p>
+  
+        <p>
+          Throughout this course I will be improving an application that I created in cs-360 Mobile Architecture and Programming. The application is an
+          event tracking app called TrackItPro.
+        </p>
 
-      <h2>Introduction </h2>
+      </section>
 
-      <p>My name is Stephen Tyler Bailey and this ePortfolio has been created to CS-499 Computer Science Capstone at Southern New Hampshire Universtiy.
-      This portfolio will be used to demonstrate the knowledge and skills I have aquired during my time in the Computer Science propgram. </p>
+      <section id="artifact">
+        <h2>Artifact</h2>
+  
+        <p>
+          I am going to be using TrackItPro as the artifact for all three enhancement categories. Using the single artifact will allow me to show the
+          the ability to enhance a single application to be a more well rounded application while still showing the growth throughout the program.
+        </p>
+  
+        <div class="buttons"> 
+          <a
+            class="button"
+            href="https://github.com/tyler37858/TrackItPro"
+            target="_blank">
+            TrackItPro GitHub Repository
+          </a>
+  
+          <a
+            class="button"
+            href=""
+            download>
+            Original Pre-enhancement Artifact
+          </a>
+        </div>
+      </section>
 
-      <p>
-        Throughout this course I will be improving an application that I created in cs-360 Mobile Architecture and Programming. The application is an
-        event tracking app called TrackItPro.
-      </p>
+      <section id="review">
+        <h2>Code Review</h2>
 
-      <h2>Artifact</h2>
+        <p>
+          Prior to starting on the enhancements of this application a professional code review was done on the existing TrackItPro base. This
+          was done to explain how the application currently worked, cover the future enhancements that would be made for the areas where it could
+          improved
+        </p>
 
-      <p>
-        I am going to be using TrackItPro as the artifact for all three enhancement categories. Using the single artifact will allow me to show the
-        the ability to enhance a single application to be a more well rounded application while still showing the growth throughout the program.
-      </p>
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/_1SAKaULV00"
+            title="TrackItPro Code Review"
+            allowfullscreen>
+          </iframe>
+        </div>
 
-      <h2>Planned Enhancements</h2>
+        <div class="buttons">
+          <a
+            class="button"
+            href="https://youtu.be/_1SAKaULV00"
+            target="_blank">
+            View on Youtube
+          </a>
+        </div>
 
-      <h3>Software Engineering and Design</h3>
+      <section id="enhancements">
+        <h2>Planned Enhancements</h2>
+        <div class="enhancement">
+          
+          <h3>Software Engineering and Design</h3>
+          <p class="status completed">Completed</p>
+    
+          <p> This enhancement focuses primarily on improving the reliability and organization for the TrackItPro app. Event notifications currently use 
+          the exact alarms without checking whether the required premissions have been granted. A premission check will be added prior to scheduling an
+          exact alarm. If the permission is unavailable the application will direct the user to the settings menu to enable this premission instead of 
+          attempting to schedule the alarm which caused the application to crash. </p>
+    
+          <p>The application structure will be improved by seperating the operations from the activity classes. Database operation currently occurs
+          directly inside the activities such as the EventActivity, AddEventActivitiy, and EventDetailActivity. These operations will be moved into a 
+          seperate layer. This change will seperate the user interface from the data access logic thus making the application easier to maintian, test,
+          and troubleshoot. </p>
 
-      <p> This enhancement focuses primarily on improving the reliability and organization for the TrackItPro app. Event notifications currently use 
-      the exact alarms without checking whether the required premissions have been granted. A premission check will be added prior to scheduling an
-      exact alarm. If the permission is unavailable the application will direct the user to the settings menu to enable this premission instead of 
-      attempting to schedule the alarm which caused the application to crash. </p>
+          <p>In completing this enhancement there were two seperate reposiotries added to the code EventRepository & UserRepository. The event repository
+          handles all the database helper with how it interacts with the events and the userRepository handles the database helper in how it reacts with 
+          the user records. This migration into repository classes gives a seperation of the the user interface which is handled in the other classes and 
+          helps the methods from being to overloaded in handling multiple items reducing the complexity and improving the maintainability. Another improvement
+          was removing the sms alerting that wasnt being used and hardened the code to be more devensive for all android version. This checks the permissions
+          prior to scheduling exact alarm, and the userId is now being passed all the way through to the notification to avoid a crash if the user clicks
+          the alert it now takes them to their event instead of crashing.</p>
 
-      <p>The application structure will be improved by seperating the operations from the activity classes. Database operation currently occurs
-      directly inside the activities such as the EventActivity, AddEventActivitiy, and EventDetailActivity. These operations will be moved into a 
-      seperate layer. This change will seperate the user interface from the data access logic thus making the application easier to maintian, test,
-      and troubleshoot. </p>
+          <div class=buttons">
+            <a
+              class="button"
+              href="https://github.com/tyler37858/TrackItPro/tree/Enhancement1"
+              target="_blank">
+              Enhancement 1 Code Base
+            </a>
 
-      <h3>Algorithms and Data Structure</h3>
+            <a
+              class="button"
+              href="code/Stephen%20Bailey%20Enhancement%201.docx">
+              Enhancement 1 Doc
+            </a>
+          </div>
+        </div>
 
-      <p>
-        The algorithms and data structure foucuses primarily on imporoving how events are orgainized and processed. Events currently appear based on
-        the order in which they are in the database rather than their scheduled date and time. Event retrieval will be changed so upcoming events are
-        sorted chronologically, placing the event with the earliest scheduled time first. 
-      </p>
+        <div class="enhancement">
 
-      <p>
-        Conflict detection will also be integrated so when an event is cretaed or edited. The start and end time will be compared with existing events
-        for the user. If the range for that event overlaps another existing event the application will show an alert to the user prior to saving the event. 
-        This enchancement adds sorting and time comparison logic to improve the schedule functionality. 
-      </p>
+          <h3>Algorithms and Data Structure</h3>
+          <p class="status planned">Started</p>
+    
+          <p>
+            The algorithms and data structure foucuses primarily on imporoving how events are orgainized and processed. Events currently appear based on
+            the order in which they are in the database rather than their scheduled date and time. Event retrieval will be changed so upcoming events are
+            sorted chronologically, placing the event with the earliest scheduled time first. 
+          </p>
+    
+          <p>
+            Conflict detection will also be integrated so when an event is cretaed or edited. The start and end time will be compared with existing events
+            for the user. If the range for that event overlaps another existing event the application will show an alert to the user prior to saving the event. 
+            This enchancement adds sorting and time comparison logic to improve the schedule functionality. 
+          </p>
 
-      <h3>Database</h3>
+          <p>
+            Post enhancement notes 
+          </p>
 
-      <p>
-        The database enhancement will focus on improving the security, data organization, and database management. The current SQLite Database stores account
-        passwords as plain text. The password storage will be updated to use secure password hashing. Authentication will compare the processed password hash
-        instead of storing and comparing the original password. 
-      </p>
+          <!-- <div class=buttons">
+            <a
+              class="button"
+              href="https://github.com/tyler37858/TrackItPro/tree/Enhancement1"
+              target="_blank">
+              Enhancement 1 Code Base
+            </a>
 
-      <p>
-        The SQLiteOpenHelper implemetation will also be replaced with Android Room. Separate entities will be created for users, events, and event categories. 
-        Relationships will connect the events to their assocaited user and categories. The event date and time field will also be indexed to support more 
-        efficient sorting and retrieval of upcoming events. These changes will increase the database security, organization, and data integrity. 
-      </p>
+            <a
+              class="button"
+              href="code/Stephen%20Bailey%20Enhancement%201.docx">
+              Enhancement 1 Doc
+            </a>
+          </div> -->
+        </div>
+
+        <div class="enhancement">
+
+          <h3>Database</h3>
+          <p class="status planned">Planned</p>
+    
+          <p>
+            The database enhancement will focus on improving the security, data organization, and database management. The current SQLite Database stores account
+            passwords as plain text. The password storage will be updated to use secure password hashing. Authentication will compare the processed password hash
+            instead of storing and comparing the original password. 
+          </p>
+    
+          <p>
+            The SQLiteOpenHelper implemetation will also be replaced with Android Room. Separate entities will be created for users, events, and event categories. 
+            Relationships will connect the events to their assocaited user and categories. The event date and time field will also be indexed to support more 
+            efficient sorting and retrieval of upcoming events. These changes will increase the database security, organization, and data integrity. 
+          </p>
+
+          <p>
+            post enhancement notes
+          </p>
+
+          <!-- <div class=buttons">
+            <a
+              class="button"
+              href="https://github.com/tyler37858/TrackItPro/tree/Enhancement1"
+              target="_blank">
+              Enhancement 1 Code Base
+            </a>
+
+            <a
+              class="button"
+              href="code/Stephen%20Bailey%20Enhancement%201.docx">
+              Enhancement 1 Doc
+            </a>
+          </div> -->
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Connect</h2>
+        <p>See more of my work or contact information via LinkedIn or GitHub</p>
+
+        <div class=buttons">
+          <a
+            class="button"
+            href="https://github.com/tyler37858"
+            target="_blank">
+            GitHub
+          </a>
+
+          <a
+            class="button"
+            href="https://www.linkedin.com/in/stephen-bailey-9ba206181/">
+            LinkedIn
+          </a>
+        </div>
+      </section>
 
       <footer>
         <p>Stephen Tyler Bailey</p>
