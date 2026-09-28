@@ -183,7 +183,7 @@
         <div class="enhancement">
 
           <h3>Database</h3>
-          <p class="status planned">Planned</p>
+          <p class="status completed">Completed</p>
     
           <p>
             The database enhancement will focus on improving the security, data organization, and database management. The current SQLite Database stores account
@@ -198,23 +198,27 @@
           </p>
 
           <p>
-            post enhancement notes
+            Completing this enhancement the security, organization, and performance of the database was improved. The passwords are no longerstored as plain
+            text. A passwordHasher class was created this creates a random salt and hashes for user's password prior to it being stored. The existing users 
+            are also migrated to the new storage when their database is upgraded so any account or data is preserved. Foreign key was also enable to improve
+            the relationship between users and their events. Database indexing using the user Id and scheduled event time was added to support the way the 
+            events are retrieved and stored. These enhancement show secure credential storage, database design, and data integrity support. 
           </p>
 
-          <!-- <div class="buttons">
+          <div class="buttons">
             <a
               class="button"
-              href="https://github.com/tyler37858/TrackItPro/tree/Enhancement1"
+              href="https://github.com/tyler37858/TrackItPro/tree/Enhancement3"
               target="_blank">
-              Enhancement 1 Code Base
+              Enhancement 3 Code Base
             </a>
 
             <a
               class="button"
-              href="code/Stephen%20Bailey%20Enhancement%201.docx">
-              Enhancement 1 Doc
+              href="code/Stephen%20Bailey%20Enhancement%203.docx">
+              Enhancement 3 Doc
             </a>
-          </div> -->
+          </div>
         </div>
       </section>
 
